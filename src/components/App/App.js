@@ -17,9 +17,11 @@ class App extends Component {
 
     this.state = {
       user: null,
-      msgAlerts: []
+      msgAlerts: [],
+      wellnessEvents: []
     }
   }
+  setWellnessEvents = wellnessEvents => this.setState({ wellnessEvents: wellnessEvents })
 
   setUser = user => this.setState({ user })
 
@@ -60,7 +62,7 @@ class App extends Component {
             <WellnessEventCreate msgAlert={this.msgAlert} user={user} />
           )} />
           <Route exact path='/wellnessEvents' render={() => (
-            <WellnessEventIndex msgAlert={this.msgAlert} user={user} />
+            <WellnessEventIndex msgAlert={this.msgAlert} setWellnessEvents={this.wellnessEvents} user={user} />
           )} />
         </main>
       </Fragment>
