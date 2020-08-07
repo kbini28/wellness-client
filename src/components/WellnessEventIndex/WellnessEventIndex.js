@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import messages from '../AutoDismissAlert/messages'
@@ -52,6 +52,9 @@ const WellnessEventIndex = props => {
                   <h4>When? {wellnessEvent.date}</h4>
                   <h4>Start: {wellnessEvent.startTime}</h4>
                   <h4>End: {wellnessEvent.endTime}</h4>
+                  <Link to={`/wellnessEvents/${wellnessEvent._id}/update`}>
+                    <button className="btn">Update Event</button>
+                  </Link>
                 </li>
               )
             })}
@@ -72,6 +75,12 @@ const WellnessEventIndex = props => {
                   <h4>Start: {wellnessEvent.startTime}</h4>
                   <h4>End: {wellnessEvent.endTime}</h4>
                   <h4>Where? {wellnessEvent.location}</h4>
+                  <Link to={`/wellnessEvents/${wellnessEvent._id}`}>
+                    <button className="btn">See More</button>
+                  </Link>
+                  <Link to={`/wellnessEvents/${wellnessEvent._id}/update`}>
+                    <button className="btn">Update Event</button>
+                  </Link>
                 </li>
               )
             })}
