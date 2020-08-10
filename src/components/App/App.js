@@ -8,6 +8,10 @@ import SignUp from '../SignUp/SignUp'
 import SignIn from '../SignIn/SignIn'
 import SignOut from '../SignOut/SignOut'
 import ChangePassword from '../ChangePassword/ChangePassword'
+import WellnessEventCreate from '../WellnessEventCreate/WellnessEventCreate'
+import WellnessEventIndex from '../WellnessEventIndex/WellnessEventIndex'
+import WellnessEventUpdate from '../WellnessEventUpdate/WellnessEventUpdate'
+import WellnessEventShow from '../WellnessEventShow/WellnessEventShow'
 
 class App extends Component {
   constructor () {
@@ -15,9 +19,11 @@ class App extends Component {
 
     this.state = {
       user: null,
-      msgAlerts: []
+      msgAlerts: [],
+      wellnessEvents: []
     }
   }
+  setWellnessEvents = wellnessEvents => this.setState({ wellnessEvents: wellnessEvents })
 
   setUser = user => this.setState({ user })
 
@@ -53,6 +59,18 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/wellness-event-create' render={() => (
+            <WellnessEventCreate msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/wellnessEvents/:id' render={({ match }) => (
+            <WellnessEventShow msgAlert={this.msgAlert} match={match} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/wellnessEvents' render={() => (
+            <WellnessEventIndex msgAlert={this.msgAlert} setWellnessEvents={this.wellnessEvents} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/wellnessEvents/:id/update' render={({ match }) => (
+            <WellnessEventUpdate msgAlert={this.msgAlert} match={match} user={user} />
           )} />
         </main>
       </Fragment>
