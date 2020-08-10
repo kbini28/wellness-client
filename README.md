@@ -1,129 +1,43 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+# Back in 10!
+Back in 10 is a client application that emphasises wellness and personal and mental health. The application is based on creating calendar events to remind the user to take a break during a hectic work schedule. Maintaining an appropriate work-life balance is one of the most important practices for improving both physical and mental health, as well as increasing productivity while at work.
 
-# react-auth-template
+This application will generate a calendar unique to each user, which will schedule wellness activities within their day-to-day tasks. In a future version, Back in 10 will be able to sync with a user's personal or work calendar, such as a Google or Outlook Calendar, to be able to schedule events within an existing calendar. It is important to make time for breaks, and often during a busy work day, breaks and wellness activities will be the first activity postponed to make room for more productivity. While that seems like a good idea in the short term, it will actually reduce productivity over the course of the day.
 
-A front-end framework template for starting projects with a recent version of
-either the [Rails API Template](https://git.generalassemb.ly/ga-wdi-boston/rails-api-template)
-or the [Express API Template](https://git.generalassemb.ly/ga-wdi-boston/express-api-template).
+## Functionality
 
-## Installation
+Back in 10 allows a user to Crete, Read, Update and Delete a calandar event with a date, time (start and end time), type of activity, and an optional location. The current version allows the user to input an activity of their choosing, however the next version will provide a pre-created dropdown list of activities to choose from, as well as a blank input field to generate a custom option. Version two will also feature a live calendar in which to input events, rather than a list-style display. Future versions will also feature a random activity generator, to motivate an individual to try new or different activities from their typical routine.
 
-1. [Download](../../archive/master.zip) this template.
-1. Unzip and rename the template directory (`unzip ~/Downloads/react-auth-template-master.zip`).
-1. Move into the new project and `git init`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace `react-auth-template` in `package.json` with your
-   projects name.
-1. Replace the `"homepage"` field in `package.json` with your (public) Github
-   account name and repository name.
-1. Install dependencies with `npm install`.
-1. `git add` and `git commit` your changes.
-1. Run the development server with `npm start`.
+## Additional Stretch Goals
+Users will be able to sync their existing calendar applications (like Google, Apple or Outlook Calendars), to be able to input wellness activities within their personal or work schedules.
+A user will be allowed to invite other users to their wellness activities, similar to a meeting or appointment request in an Outlook calendar.
 
-## Deployment
+### Live Links
+Deployed Site: Not yet deployed
+Deployed API: [Heroku](https://protected-refuge-08536.herokuapp.com)
 
-Before deploying, you first need to make sure the `homepage` key in your
-`package.json` is pointing to the correct value. It should be the url of your
-deployed application.
+Client Repository: [GitHub-Wellness-Client](https://github.com/kbini28/wellness-client)
+API Repository: [GitHub-Wellness-API](https://github.com/kbini28/wellness-api)
 
-To deploy you should first make sure you are on the `master` branch with a
-clean working directory, then you can run `npm run deploy` and wait to see if
-it runs successfully.
+### Technologies Used (API)
+React (hooks for the WellnessEvent routes, classes for the auth routes), npm, Javascript, axios, CSS/SASS, React-Bootstrap
+Version 2 will also use: Calendar from 'react-big-calendar' and a localizer 'moment'
 
-## About
+### User Stories
+  - As a user, I’d like to be able to set a time length for my event.
+  - As a user, I’d like to create an event and add it to my calendar.
+  - As a user, I’d like to be able to select from an options list when I don’t know what to do.
+  - As a user, I’d like to view all events on my calendar.
+  - As a user, I’d like to remove an event from my to-do list.
+  - As a user, I’d like to be able to change (update) the length of time for my activity, after it has been created.
+  - As a stretch goal, I’d like to view all events on a particular day or week.
 
-This template is derived from GA Boston's [react-template](https://git.generalassemb.ly/ga-wdi-boston/react-template).
-Most of the development dependencies, such as linters, SCSS compiler, Webpack
-config, NPM scripts, etc in this repo come from there.
+### Wireframes
+[Unauthorized](https://i.imgur.com/GN85q0F.jpg)
+[During Authorization](https://i.imgur.com/MQW46eC.jpg)
+[Authorized](https://i.imgur.com/1rLk4Fj.jpg)
 
-It includes all the components and routes needed to sign up, sign in, change
-passwords, and sign out of an API built with either template linked above, with
-no need for modification.
+### Application at a Glance
 
-**NOTE**: You should customize the included components to suit you app! They're
-provided as a guide and a bare minimum of functionality and style. Consider
-changing the provided SCSS styles, modifying the auth code, improving the flash
-messages, etc.
 
-## Structure
-
-The top-level `App` component stores the currently authenticated
-user in state, as well as data related to the flash messages. `App` renders the
-`Header` component, and a list of routes, each of which render a component from
-`src/components`. The `src/api` directory has a component file, `auth.js`, which
-contains all the needed `axios` calls pertaining to authentication.
-
-You can follow this pattern in your app as well. For instance, if you are making
-an app that keeps track of books, you might want a `src/api/books.js`, which
-contains its own `axios` call pertaining to your books resource CRUD actions.
-Using a separate directory within `components` for each individual component you
-add makes it easy to locate and update components and has the added benefit of
-making it easy to create custom styles that apply to that specific component.
-To apply component specific styles, add a file to the component's directory such
-as `ComponentName.scss` and then import it directly into the component with
-`import './ComponentName.scss'`.  This will keep your styles modularized and
-make it easier to make changes at the component level.
-
-## Features
-
-### `<AuthenticatedRoute />`
-
-This template contains a handy component for creating routes that require a
-user to be authenticated before visiting. This component lives in
-`src/auth/components/AuthenticatedRoute.js` and is already required in `App`.
-It's a thin wrapper around React Router's `<Route />` component. The only
-difference is that it expects a prop called `user`, and if that prop is falsy,
-it will render a `<Redirect />` that takes the user to `/`. **To use
-it, you must pass it the user as a prop!**
-
-It supports both the `component=` and `render=` attributes, but like `<Route />`
-it will not forward props to the component if you use `component=`.
-
-### `<AutoAlertDismiss />` Component
-
-This template also already contains a component that displays user messages.
-Messages are configurable via redux actions.  This component can be found in
-`src/components/AutoAlertDismiss/AutoAlertDismiss.js`. **There is no need to add
-this component to your app. It is already required in `App`.**  A single
-component instance is used to manage all alerts application-wide.
-
-The alert can be used by passing the `alertMsg` method to a rendered route.  The
-`alertMsg` method expects an object with a `heading`, `message`, and a `variant` property.
-
-Use this component in conjunction with the `messages.js` file in the same
-directory to create and manage all of your application messages in one place.
-
-The `variant` property must be a Bootstrap alert variant, as this component is merely a
-wrapper around the [react-bootstrap Alert
-component](https://react-bootstrap.github.io/components/alerts/).  The types it
-will accept are: 'primary', 'secondary', 'success', 'danger', 'warning', 'info',
-'light', and 'dark'.
-
- To change the duration of the message, replace `5000` with a value of your
- choice (in milliseconds) in this component's `componentDidMount` method.
-
-### `src/apiConfig.js`
-
-Just like in
-[browser-template](https://git.generalassemb.ly/ga-wdi-boston/browser-template),
-this file will determine whether you're in a production or development
-environment and choose an API URL accordingly. Don't forget to replace the
-`production` URL with your deployed API's URL.
-
-## Tasks
-
-Developers should run these often!
-
-- `npm run nag`: runs code quality analysis tools on your code and complains.
-- `npm run make-standard`: reformats all your code in the JavaScript Standard
-  Style.
-- `npm run start`: generates bundles, watches, and livereloads.
-- `npm run build`: place bundled styles and scripts where `index.html` can find
-    them
-- `npm run deploy`: builds and deploys master branch
-
-## [License](LICENSE)
-
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+## Unsolved Problems
+Ending on a high note, I fell short on a few areas that I had hoped to complete in Version 1. I was not able to get the Update form to populate with existing data from the event. Also the calendar library/catalog from React was not finished in time. Obviously styling was not in the forefront either, as I wanted to try to push myself to complete the calendar first. One other thing I wanted to complete was to populate ONLY the owner's events to their calendar. That may be the most important feature to fix for the next version.

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import messages from '../AutoDismissAlert/messages'
+import MyCalendar from '../Calendar/Moment'
 
 const WellnessEventIndex = props => {
   const [wellnessEvents, setWellnessEvents] = useState(null)
@@ -70,6 +71,7 @@ const WellnessEventIndex = props => {
   return (
     <div className="wellness-event-index">
       <h2>All Wellness Events:</h2>
+      {MyCalendar}
       {jsx}
     </div>
   )
