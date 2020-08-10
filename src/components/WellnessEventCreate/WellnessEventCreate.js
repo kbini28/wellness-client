@@ -15,7 +15,7 @@ const WellnessEventCreate = props => {
     eventType: '',
     location: ''
   })
-  // const [createdWellnessId, setCreatedWellnessId] = useState(null)
+  const [createdWellnessId, setCreatedWellnessId] = useState(null)
 
   const handleInputChange = event => {
     console.log('handleInputChange ', event)
@@ -39,6 +39,9 @@ const WellnessEventCreate = props => {
       },
       data: { wellnessEvent: wellnessEvent }
     })
+      .then(res => {
+        setCreatedWellnessId(res.data.wellnessEvent._id)
+      })
       .then(() => msgAlert({
         heading: 'Event Create Succes',
         message: messages.wellnessCreateSuccess,
@@ -55,15 +58,12 @@ const WellnessEventCreate = props => {
           }
         })
       })
-      .then(() => {
-        return <Redirect to={'/wellnessEvents'} />
-      })
       .catch(console.error)
   }
 
-  // if (wellnessEvent) {
-  //   return <Redirect to={'/'} />
-  // }
+  if (createdWellnessId) {
+    return <Redirect to={'/wellnessEvents'} />
+  }
 
   return (
     <div className="row wellness-event-create">
@@ -108,6 +108,7 @@ const WellnessEventCreate = props => {
           <Form.Group controlId="eventType">
             <Form.Label>Type of Wellness Event</Form.Label>
             <Form.Control
+              required
               type="text"
               name="eventType"
               value={setWellnessEvent.eventType}

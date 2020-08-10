@@ -26,7 +26,7 @@ const WellnessEventUpdate = props => {
         'Authorization': `Token token=${user.token}`
       }
     })
-      .then(res => setWellnessEvent({ wellnessEvent: res.data.wellnessEvent }))
+      .then(res => setWellnessEvent(res.data.wellnessEvent))
       .catch(console.error)
   }, [])
 
@@ -70,7 +70,7 @@ const WellnessEventUpdate = props => {
 
   return (
     <div className="row wellness-event-update">
-      <Link to={`/wellnessEvents/${wellnessEvent._id}`}>
+      <Link to={'/wellnessEvents/'}>
         <button className="btn go-back">Go Back</button>
       </Link>
       <div className="col-sm-10 col-md-8 mx-auto mt-5">
@@ -79,7 +79,6 @@ const WellnessEventUpdate = props => {
           <Form.Group controlId="date">
             <Form.Label>Pick A Date</Form.Label>
             <Form.Control
-              required
               type="date"
               name="date"
               value={setWellnessEvent.date}
@@ -90,7 +89,6 @@ const WellnessEventUpdate = props => {
           <Form.Group controlId="startTime">
             <Form.Label>Start Time</Form.Label>
             <Form.Control
-              required
               type="time"
               step='minute: 5'
               name="startTime"
@@ -102,7 +100,6 @@ const WellnessEventUpdate = props => {
           <Form.Group controlId="endTime">
             <Form.Label>End Time</Form.Label>
             <Form.Control
-              required
               type="time"
               step={{ minute: 5 }}
               name="endTime"

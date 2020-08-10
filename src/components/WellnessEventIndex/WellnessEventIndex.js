@@ -5,7 +5,7 @@ import apiUrl from '../../apiConfig'
 import messages from '../AutoDismissAlert/messages'
 
 const WellnessEventIndex = props => {
-  const [wellnessEvents, setWellnessEvents] = useState([])
+  const [wellnessEvents, setWellnessEvents] = useState(null)
 
   useEffect(() => {
     const { user, msgAlert } = props
@@ -17,10 +17,8 @@ const WellnessEventIndex = props => {
       }
     })
       .then(response => {
-        console.log(response.data)
-        setWellnessEvents({
-          wellnessEvents: response.data.wellnessEvents
-        })
+        console.log('index axios', response)
+        setWellnessEvents(response.data.wellnessEvents)
       })
       .then(() => msgAlert({
         heading: 'Event Show Success',
@@ -39,37 +37,16 @@ const WellnessEventIndex = props => {
   } else if (wellnessEvents.length === 0) {
     jsx = <p>No wellness events created, yet. Please add an event!</p>
   // if the API responds with events
-  } else if (wellnessEvents.wellnessEvents.location === '') {
+  } else {
     console.log('here is where I log wellnessEvents', wellnessEvents)
     jsx = (
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5 wellness-event-index">
           <ul>
-            {wellnessEvents.wellnessEvents.map((wellnessEvent) => {
+            {wellnessEvents.map(wellnessEvent => {
               return (
                 <li key={wellnessEvent._id}>
-                  <h3>Practicing wellness with: {wellnessEvent.eventType}</h3>
-                  <h4>When? {wellnessEvent.date}</h4>
-                  <h4>Start: {wellnessEvent.startTime}</h4>
-                  <h4>End: {wellnessEvent.endTime}</h4>
-                  <Link to={`/wellnessEvents/${wellnessEvent._id}/update`}>
-                    <button className="btn">Update Event</button>
-                  </Link>
-                </li>
-              )
-            })}
-          </ul>
-        </div>
-      </div>
-    )
-  } else {
-    jsx = (
-      <div className="row">
-        <div className="col-sm-10 col-md-8 mx-auto mt-5 wellness-event-index">
-          <ul>
-            {wellnessEvents.wellnessEvents.map((wellnessEvent) => {
-              return (
-                <li key={wellnessEvent._id}>
+                  {console.log('wellnessEvent id', wellnessEvent._id)}
                   <h3>Practicing wellness with: {wellnessEvent.eventType}</h3>
                   <h4>When? {wellnessEvent.date}</h4>
                   <h4>Start: {wellnessEvent.startTime}</h4>
