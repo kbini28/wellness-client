@@ -69,7 +69,7 @@ const WellnessEventShow = props => {
       <div className="row wellness-event-show">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
           <section>
-            <h3>Practicing wellness with: {wellnessEvent.eventType}</h3>
+            <h3>Practicing wellness by: {wellnessEvent.eventType}</h3>
             <h4>When? {wellnessEvent.date}</h4>
             <h4>Start: {wellnessEvent.startTime}</h4>
             <h4>End: {wellnessEvent.endTime}</h4>

@@ -104,13 +104,13 @@ const WellnessEventCreate = props => {
             />
           </Form.Group>
           <Form.Group controlId="eventType">
-            <Form.Label>Type of Wellness Event</Form.Label>
+            <Form.Label>Practicing wellness by:</Form.Label>
             <Form.Control
               required
               type="text"
               name="eventType"
               value={setWellnessEvent.eventType}
-              placeholder="ex: take a walk"
+              placeholder="ex: taking a walk"
               onChange={handleInputChange}
             />
           </Form.Group>

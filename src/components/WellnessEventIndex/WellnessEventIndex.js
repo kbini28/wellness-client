@@ -48,7 +48,7 @@ const WellnessEventIndex = props => {
             {wellnessEvents.sort((a, b) => (a.date > b.date) ? 1 : (a.date === b.date) ? ((a.startTime > b.startTime) ? 1 : -1) : -1).map(wellnessEvent => {
               return (
                 <li key={wellnessEvent._id}>
-                  <h3>Practicing wellness with: {wellnessEvent.eventType}</h3>
+                  <h3>Practicing wellness by: {wellnessEvent.eventType}</h3>
                   <h4>When? {wellnessEvent.date}</h4>
                   <h4>Start: {wellnessEvent.startTime}</h4>
                   <h4>End: {wellnessEvent.endTime}</h4>
