@@ -74,9 +74,6 @@ const WellnessEventShow = props => {
               <button className="btn">Update Event</button>
             </Link>
             <button className="btn" onClick={deleteWellnessEvent}>Delete Event</button>
-            <Link to={'/wellnessEvents'}>
-              <button className="btn go-back">Go Back</button>
-            </Link>
           </section>
         </div>
       </div>
@@ -84,7 +81,10 @@ const WellnessEventShow = props => {
   }
 
   return (
-    <div className="wellness-event-show">
+    <div className="jsx-show">
+      <Link to={'/wellnessEvents'}>
+        <button className="btn go-back">Go Back</button>
+      </Link>
       <h2>Here is your scheduled event:</h2>
       {jsx}
     </div>

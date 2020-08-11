@@ -37,6 +37,8 @@ const WellnessEventIndex = props => {
   } else if (wellnessEvents.length === 0) {
     jsx = <p>No wellness events created, yet. Please add an event!</p>
   // if the API responds with events
+  // wellnessEvents.sort will place the events in order from most recent to furthest away
+  // then .map will display all events on the page (in the sorted order)
   } else {
     console.log('here is where I log wellnessEvents', wellnessEvents)
     jsx = (
