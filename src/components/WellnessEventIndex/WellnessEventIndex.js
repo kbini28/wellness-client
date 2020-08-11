@@ -17,7 +17,7 @@ const WellnessEventIndex = props => {
       }
     })
       .then(response => {
-        console.log('index axios', response)
+        // console.log('index axios', response)
         setWellnessEvents(response.data.wellnessEvents)
       })
       .then(() => msgAlert({
@@ -40,7 +40,7 @@ const WellnessEventIndex = props => {
   // wellnessEvents.sort will place the events in order from most recent to furthest away
   // then .map will display all events on the page (in the sorted order)
   } else {
-    console.log('here is where I log wellnessEvents', wellnessEvents)
+    // console.log('here is where I log wellnessEvents', wellnessEvents)
     jsx = (
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5 wellness-event-index">
@@ -48,7 +48,6 @@ const WellnessEventIndex = props => {
             {wellnessEvents.sort((a, b) => (a.date > b.date) ? 1 : (a.date === b.date) ? ((a.startTime > b.startTime) ? 1 : -1) : -1).map(wellnessEvent => {
               return (
                 <li key={wellnessEvent._id}>
-                  {console.log('wellnessEvent id', wellnessEvent._id)}
                   <h3>Practicing wellness with: {wellnessEvent.eventType}</h3>
                   <h4>When? {wellnessEvent.date}</h4>
                   <h4>Start: {wellnessEvent.startTime}</h4>

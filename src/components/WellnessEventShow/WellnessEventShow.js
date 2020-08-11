@@ -9,7 +9,6 @@ const WellnessEventShow = props => {
   const [deleted, setDeleted] = useState(false)
 
   useEffect(() => {
-    console.log('event show ', props.match)
     const id = props.match.params.id
     const { user } = props
     axios({
@@ -19,6 +18,9 @@ const WellnessEventShow = props => {
         'Authorization': `Token token=${user.token}`
       }
     })
+      // don't use setWellnessEvent({ wellnessEvent: res.data.wellnessEvent })
+      // it creates an object of an array of objects, adding unnecessary layers
+      // remember, we then had to call wellnessEvent.wellnessEvent.map in index
       .then(res => setWellnessEvent(res.data.wellnessEvent))
       .catch(console.error)
   }, [])
@@ -42,7 +44,8 @@ const WellnessEventShow = props => {
         message: 'Message Success',
         variant: 'Success'
       }))
-      .then(res => setDeleted({ deleted: true }))
+      // don't need do say setDeleted({deleted: true}) because that adds an extra layer of complication
+      .then(res => setDeleted(true))
       .catch(() => msgAlert({
         heading: 'Event Delete Failure',
         message: 'Message Failure',
@@ -52,7 +55,8 @@ const WellnessEventShow = props => {
   }
 
   if (deleted === true) {
-    return <Redirect to='/wellnessEvents' />
+    // console.log('i have been deleted!')
+    return <Redirect to={'/wellnessEvents'} />
   }
 
   let jsx

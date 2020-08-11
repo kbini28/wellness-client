@@ -18,7 +18,6 @@ const WellnessEventCreate = props => {
   const [createdWellnessId, setCreatedWellnessId] = useState(null)
 
   const handleInputChange = event => {
-    console.log('handleInputChange ', event)
     event.persist()
     setWellnessEvent(prevWellnessEvent => {
       const updatedField = { [event.target.name]: event.target.value }
@@ -28,7 +27,6 @@ const WellnessEventCreate = props => {
   }
 
   const handleSubmit = event => {
-    console.log('handleSubmit ', event)
     event.preventDefault()
     const { msgAlert, user } = props
     axios({
@@ -86,7 +84,7 @@ const WellnessEventCreate = props => {
             <Form.Control
               required
               type="time"
-              step='minute: 5'
+              step={300}
               name="startTime"
               value={setWellnessEvent.startTime}
               placeholder="Start Time"
@@ -98,7 +96,7 @@ const WellnessEventCreate = props => {
             <Form.Control
               required
               type="time"
-              step={{ minute: 5 }}
+              step={300}
               name="endTime"
               value={setWellnessEvent.endTime}
               placeholder="12:00 pm"

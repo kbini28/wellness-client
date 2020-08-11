@@ -90,7 +90,7 @@ const WellnessEventUpdate = props => {
             <Form.Label>Start Time</Form.Label>
             <Form.Control
               type="time"
-              step='minute: 5'
+              step={300}
               name="startTime"
               value={setWellnessEvent.startTime}
               placeholder="Start Time"
@@ -101,7 +101,7 @@ const WellnessEventUpdate = props => {
             <Form.Label>End Time</Form.Label>
             <Form.Control
               type="time"
-              step={{ minute: 5 }}
+              step={300}
               name="endTime"
               value={setWellnessEvent.endTime}
               placeholder="12:00 pm"

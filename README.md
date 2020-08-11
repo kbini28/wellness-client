@@ -37,7 +37,9 @@ Version 2 will also use: Calendar from 'react-big-calendar' and a localizer 'mom
 [Authorized](https://i.imgur.com/1rLk4Fj.jpg)
 
 ### Application at a Glance
+<img width="1408" alt="welcome page view" src="https://user-images.githubusercontent.com/63154987/89947181-0f17ad80-dbf2-11ea-8f10-6a3c4bc691fa.png">
 
+<img width="1391" alt="wellness event index page view" src="https://user-images.githubusercontent.com/63154987/89947202-12ab3480-dbf2-11ea-9cf5-7a96ef900c4e.png">
 
 ## Unsolved Problems
 Ending on a high note, I fell short on a few areas that I had hoped to complete in Version 1. I was not able to get the Update form to populate with existing data from the event. Also the calendar library/catalog from React was not finished in time. Obviously styling was not in the forefront either, as I wanted to try to push myself to complete the calendar first. One other thing I wanted to complete was to populate ONLY the owner's events to their calendar. That may be the most important feature to fix for the next version.
