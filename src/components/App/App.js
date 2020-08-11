@@ -12,6 +12,7 @@ import WellnessEventCreate from '../WellnessEventCreate/WellnessEventCreate'
 import WellnessEventIndex from '../WellnessEventIndex/WellnessEventIndex'
 import WellnessEventUpdate from '../WellnessEventUpdate/WellnessEventUpdate'
 import WellnessEventShow from '../WellnessEventShow/WellnessEventShow'
+import Home from '../Home/Home'
 
 class App extends Component {
   constructor () {
@@ -48,6 +49,7 @@ class App extends Component {
           />
         ))}
         <main className="container">
+          <Route exact path='/' component={Home} />
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />

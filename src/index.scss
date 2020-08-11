@@ -1,1 +1,28 @@
 @import '~bootstrap/scss/bootstrap';
+$theme-blue: #2D0A7E;
+
+body {
+  background-image: url('./img/background-main.jpg');
+  // opacity: 0.5;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  background-color: #F6F4EB;
+}
+
+.navbar-main {
+  background: rgba(157, 157, 154, .8);
+}
+// .navbar-links {
+//   color: $theme-blue;
+//   .navbar-links:hover {
+//     color: red;
+//   }
+// }
+
+
+.home-page {
+  text-align: center;
+  margin-top: 40px;
+  color: $theme-blue;
+}
