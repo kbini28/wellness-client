@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import messages from '../AutoDismissAlert/messages'
-import MyCalendar from '../Calendar/Moment'
 
 const WellnessEventIndex = props => {
   const [wellnessEvents, setWellnessEvents] = useState(null)
@@ -44,7 +43,7 @@ const WellnessEventIndex = props => {
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5 wellness-event-index">
           <ul>
-            {wellnessEvents.map(wellnessEvent => {
+            {wellnessEvents.sort((a, b) => (a.date > b.date) ? 1 : (a.date === b.date) ? ((a.startTime > b.startTime) ? 1 : -1) : -1).map(wellnessEvent => {
               return (
                 <li key={wellnessEvent._id}>
                   {console.log('wellnessEvent id', wellnessEvent._id)}
@@ -71,7 +70,6 @@ const WellnessEventIndex = props => {
   return (
     <div className="wellness-event-index">
       <h2>All Wellness Events:</h2>
-      {MyCalendar}
       {jsx}
     </div>
   )
